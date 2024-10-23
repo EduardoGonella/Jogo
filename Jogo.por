@@ -38,10 +38,7 @@ programa
 	//round
 
 	cadeia round = ""
-
-  //escolha de quem salvar
-
-    inteiro escolhido
+  
 
 	//inicio
 	
@@ -101,6 +98,7 @@ programa
 	funcao jogo()
 	{
 		inteiro opcao
+    cadeia escolhido, sequestrado
 
 		limpa()
 		escreva("Victor: corre Eduardo, já são 10:18 e nós já perdemos as primeiras aulas pra terminar esse trabalho, agora vamos apresentar e terminar logo com isso. \n")
@@ -298,14 +296,14 @@ programa
 
     		} se(parceiro == "Victor")
     		{ 
-      		escreva(parceiro, ": vamos procurar nessa avenida.")
+      		escreva(parceiro, ": vamos procurar nessa avenida. \n")
       		u.aguarde(4000)
       		escreva("Eles procuram pela Avenida e não acham nada. \n")
       		u.aguarde(4000)
           escreva("Jeff: ", parceiro,", o que você acha de... \n")
-          escreva("\n[1] Perguntarmos por noticias pro pessoal que tá caminhando. \n")
-    	    escreva("\n[2] Pedir pra alguém que está passando de carro tentar notificar a policia por ajuda. \n")
-          escreva("\n[3] Voltarmos ao IF. \n") 
+          escreva("[1] Perguntarmos por noticias pro pessoal que tá caminhando. \n")
+    	    escreva("[2] Pedir pra alguém que está passando de carro tentar notificar a policia por ajuda. \n")
+          escreva("[3] Voltarmos ao IF. \n") 
           leia(opcao)    	  
           limpa()
       		
@@ -352,7 +350,7 @@ programa
 
     		} se(parceiro == "Omar")
     		{
-      		escreva(parceiro, ": O que acha de irmos pra Assemib... as vezes o pessoal decidiu fazer algo lá e ninguém nos informou...")
+      		escreva(parceiro, ": O que acha de irmos pra Assemib... as vezes o pessoal decidiu fazer algo lá e ninguém nos informou... \n")
       		u.aguarde(4000)
           escreva("Jeff: é uma boa. \n")
       		u.aguarde(4000)
@@ -365,9 +363,9 @@ programa
           escreva("A dupla chega na Assemib. \n")
       		u.aguarde(4000)
       		escreva("Jeff: agora que estamos aqui podemos... \n")
-          escreva("\n[1] Procurar no ginásio e nos arredores dentro da Assemib. \n")
-    	    escreva("\n[2] Perguntar por informações aos funcionários. \n")
-          escreva("\n[3] Gritar o nome do pessoal do IF igual loucos...? \n")  
+          escreva("[1] Procurar no ginásio e nos arredores dentro da Assemib. \n")
+    	    escreva("[2] Perguntar por informações aos funcionários. \n")
+          escreva("[3] Gritar o nome do pessoal do IF igual loucos...? \n")  
           leia(opcao)
           limpa()
 
@@ -394,9 +392,9 @@ programa
       		  u.aguarde(4000)
             escreva("Camila: caramba gente... eu faltei hoje pois eu tenho uma final agora aqui com meu time de futebol... voltem a busca, e quando eu terminar aqui eu vou lá na policia registrar o caso, feito? \n")
       		  u.aguarde(4000)
-            escreva("Jeff: beleza... obrigado camila. \n")
+            escreva("Jeff: beleza... obrigado Camila. \n")
       		  u.aguarde(4000)
-            escreva("Após se despedirem de camila, a dupla decide sair da Assemib e voltao ao IF. No entanto, quando estavam saindo, a dupla vê a moto que quase os atropelou parada na frente do IF. Eles voltam rapidamente ao campus. \n")
+            escreva("Após se despedirem de Camila, a dupla decide sair da Assemib e voltao ao IF. No entanto, quando estavam saindo, a dupla vê a moto que quase os atropelou parada na frente do IF. Eles voltam rapidamente ao campus. \n")
       		  u.aguarde(7000)
           }
 
@@ -438,6 +436,8 @@ programa
       		  u.aguarde(7000)
           }
 
+        }
+
       		limpa()
 
           escreva("Ao chegarem no campus, cautelosamente ", parceiro, " e Jeff decidem procurar por ", amigo_um, " e ", amigo_dois, ". \n")
@@ -460,82 +460,49 @@ programa
           u.aguarde(4000)
           escreva("Além disso, quilos de babosa podiam ser encontrados... a quadra era quase um matagal... \n")
           u.aguarde(4000)
-          escreva("Jeff: Franco? o que você pensa que está fazendo? \n")
+          escreva("Jeff: Fran... Franco? O que você pensa que está fazendo? \n")
           u.aguarde(4000)
-          escreva("Franco: hahahaha, isso não é da sua conta Jefferson, a única coisa que você precisa saber é que em breve o extrato de babosa estará pronto e o Júlio poderá usar a flauta binária novamente. \n")
+          escreva("Franco: hahahaha, isso não é da sua conta Jefferson, a única coisa que você precisa saber é que em breve o extrato de babosa estará pronto e o chefe poderá usar a flauta '01100010 01101001 01101110' novamente. E aí, vocês ficarão como os outros... \n")
           u.aguarde(4000)
           escreva("Jeff e ", parceiro, " cochicham algo. \n")
-          u.aguarde(3000)
+          u.aguarde(4000)
           escreva("Franco: o que vocês estão cochichando ai? \n")
           u.aguarde(4000)
-          escreva("Jeff lança um soco em direção a Franco. Enquanto isso " , parceiro, " foi tentar salvar " , amigo_um , " e " , amigo_dois , " \n")
+          escreva("Jeff lança um soco em direção a Franco. Enquanto isso " , parceiro, " tenta salvar " , amigo_um , " e " , amigo_dois ,  ". \n")
           u.aguarde(8000)
           limpa()
 
             
+          escreva(parceiro, ": Jeff, me ajuda, quem eu salvo primeiro? \n")
+          u.aguarde(4000)
+          escreva("Jeff: salve o... \n")
+          escreva("[1] ", amigo_um," primeiro. \n")
+          escreva("[2] ", amigo_dois," primeiro. \n")
+          leia(opcao)
 
-          se(parceiro == "Eduardo"){
-              escreva("Eduardo: qual será que eu salvo primeiro? \n")
-              u.aguarde(4000)
-              escreva("1- para salvar " , amigo_um , " primeiro \n")
-              escreva("2- para salvar " , amigo_dois, " primeiro \n")
-              leia(escolhido)
-              se(escolhido == 1 ){
-                escreva("Eduardo: vou salvar o Victor primeiro. \n")
-
-              } senao se(escolhido == 2){
-                  escreva("Eduardo: vou salvar o Omar primeiro. \n")
-                  u.aguarde(8000)
-                  limpa()
-              }
+          se(opcao == 1){
+            escreva(parceiro, ": vou salvar o ", amigo_um, " primeiro. \n")
+            escolhido = amigo_um
+            sequestrado = amigo_dois
+          } senao se(opcao == 2){
+            escreva(parceiro, ": vou salvar o ", amigo_dois, " primeiro. \n")
+            escolhido = amigo_dois
+            sequestrado = amigo_um
           }
+            u.aguarde(8000)
+            limpa()
 
-           se(parceiro == "Victor"){
-              escreva("Victor: qual será que eu salvo primeiro? \n")
-              u.aguarde(4000)
-              escreva("1- para salvar " , amigo_um , " primeiro \n")
-              escreva("2- para salvar " , amigo_dois, " primeiro \n")
-              leia(escolhido)
-              se(escolhido == 1 ){
-                escreva("Victor: vou salvar o Eduardo primeiro. \n")
+            escreva("Enquanto ", parceiro," vai desamarrando ", escolhido,", a batalha continua. \n")
+            u.aguarde(4000)
 
-              } senao se(escolhido == 2){
-                  escreva("Victor: vou salvar o Omar primeiro. \n")
-                  u.aguarde(8000)
-                  limpa()
-              }
-          }
+            //Batalha
+            //Quando Franco estiver com 5 ou menos de vida
 
-           se(parceiro == "Omar"){
-              escreva("Omar: qual será que eu salvo primeiro? \n")
-              u.aguarde(4000)
-              escreva("1- para salvar " , amigo_um , " primeiro \n")
-              escreva("2- para salvar " , amigo_dois, " primeiro \n")
-              leia(escolhido)
-              se(escolhido == 1 ){
-                escreva("Omar: vou salvar o Eduardo primeiro. \n")
-
-              } senao se(escolhido == 2){
-                  escreva("Omar: vou salvar o Omar primeiro. \n")
-                  u.aguarde(8000)
-                  limpa()
-
-                  
-              }
-
-              escreva("Enquanto " , parceiro , " vai desamarrando seu companheiro, a batalha continua. \n")
-              u.aguarde(4000)
-              escreva(parceiro , ":" , " vamos rápido ja te soltei", escolhido, "preciso salvar o outro. \n")
-              u.aguarde(4000)
-          }
-
-         
-    		}
-
-		
-  
-    
+            escreva(parceiro, ": vamos rápido ", escolhido, ", agora que te soltei me ajuda a salvar o ", sequestrado, ". \n")
+            u.aguarde(4000)          
+          
   }
+
 
   //Jefferson
 
@@ -847,7 +814,7 @@ programa
     limpa()
     escreva("O inimigo Vazio possuí ", vida_Vazio, " de vida! \n")
     escreva("Selecione uma opção de ataque pelo seu número: \n")
-    escreva("1. Soco \n")
+    escreva("[1] Soco \n")
     leia(opcao)
 
     se(opcao == 1){
