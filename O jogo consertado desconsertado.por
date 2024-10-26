@@ -26,20 +26,15 @@ programa
 
 	cadeia inimigo = ""
 
-	//Parceiro jeff
 
-	cadeia parceiro = ""
-
-	//Dulpa de expedição dentro do campus 
-
-	cadeia amigo_um = ""
-	cadeia amigo_dois = ""
 
 	//round
 
 	cadeia round = ""
-  
-
+	
+  	inteiro cooldown = 0
+	cadeia escolhido = ""
+	cadeia sequestrado = ""
 	//inicio
 	
 	funcao inicio()
@@ -62,7 +57,7 @@ programa
 		escreva("Por algumas horas, nunca se viu a escola tão quieta e silenciosa...")
  		u.aguarde(6500)
 
-		inteiro opcao
+		inteiro opcao = 0
 		
 		limpa()
     u.aguarde(2000)
@@ -97,8 +92,12 @@ programa
 
 	funcao jogo()
 	{
-		inteiro opcao
-    cadeia escolhido, sequestrado
+		inteiro opcao = 0
+    		cadeia parceiro = ""
+
+		cadeia amigo_um = ""
+		cadeia amigo_dois = ""
+	
 
 		limpa()
 		escreva("Victor: corre Eduardo, já são 10:18 e nós já perdemos as primeiras aulas pra terminar esse trabalho, agora vamos apresentar e terminar logo com isso. \n")
@@ -693,11 +692,12 @@ programa
 
 	funcao jeff_dano () 
 	{
-		inteiro ataque
-		inteiro opcao
+		inteiro ataque = 0
+		inteiro opcao = 0
 		inteiro energia_max = 100
+		
 
-    limpa()
+    		limpa()
 		escreva("Jeff possuí ", energia_jeff, " de energia, e está com ", vida_jeff, " de HP. \n")    
 		escreva("Selecione uma opção pelo seu número: \n")
 		escreva("[1] Guardar energia\n", "[2] Atacar\n")
@@ -717,18 +717,39 @@ programa
 		
 		se (opcao == 1) {
 			se (energia_jeff < energia_max e energia_jeff >=0) {
-				energia_jeff = energia_jeff + 40 
-				escreva("Energia recarregada! Sua energia agora é igual a ", energia_jeff, "/", energia_max, "\n")
-				u.aguarde(3000)
-				limpa()
-        
-            se(inimigo == "Julio"){
-              round = "Julio"
-            } senao se (inimigo == "Franco"){
-              round = "Franco"
-            }
+				se (escolhido == ""){
+					energia_jeff = energia_jeff + 40 
+					escreva("Energia recarregada! Sua energia agora é igual a ", energia_jeff, "/", energia_max, "\n")
+					u.aguarde(3000)
+					limpa()
+				
+					se(inimigo == "Julio"){
+              				round = "Julio"
+            			} senao se (inimigo == "Franco"){
+              				round = "Franco"
+            			}
 
-			} senao se (energia_jeff < 0) {
+				} senao se (escolhido == "Omar") {
+					se (cooldown == 0) {
+						escreva("????")
+						dano_jeff = 15
+						vida_Julio = vida_Julio - dano_jeff
+						escreva("Energia recarregada! Sua energia agora é igual a ", energia_jeff, "/", energia_max, "\n")
+						escreva("Omar bla bla bla ", dano_jeff, " bla bla bla ", vida_Julio, "\n")
+						cooldown = 3
+						round = "Julio"
+					} senao se (cooldown == 3) {
+						escreva("Cooldown = ", cooldown, "espere mais ", cooldown, "rounds para que Omar ataque novamente!\n")
+						round = "Julio"
+						cooldown = cooldown - 1
+					}
+				} senao se (escolhido == "Eduardo") {
+					
+				} senao se (escolhido == "Victor") {
+					
+				}
+			
+			}senao se (energia_jeff < 0) {
 				energia_jeff = 0
 			} senao se (energia_jeff == energia_max) {
 				escreva("Sua energia está cheia! Sua energia é igual a ", energia_jeff, "/", energia_max, "\n")
@@ -739,6 +760,7 @@ programa
 				energia_jeff = energia_max
 			}
 		}
+		
 
 		se (opcao == 2) {
 			escreva("Selecione uma opção de ataque pelo seu número: \n")
@@ -848,8 +870,8 @@ programa
 	
 	funcao julio_dano () 
 	{
-		inteiro ataque
-		inteiro opcao
+		inteiro ataque = 0
+		inteiro opcao = 0
 		inteiro energia_max = 70
 
 		se (energia_Julio > 20) {
@@ -862,12 +884,22 @@ programa
 				
 		se (opcao == 1) {
 			se (energia_Julio < energia_max e energia_Julio >= 0) {
-				energia_Julio = energia_Julio + 50 
-				escreva("Energia de Julio recarregada!\n")
-				u.aguarde(3000)
-        limpa()
+				se (sequestrado == "") {
+					energia_Julio = energia_Julio + 50 
+					escreva("Energia de Julio recarregada!\n")
+					u.aguarde(3000)
+        				limpa()
 
-        round = "Jefferson"
+        				round = "Jefferson"
+				} senao se (sequestrado == "Omar") {
+					
+				} senao se (sequestrado == "Victor") {
+					
+				} senao se (sequestrado == "Eduardo") {
+					
+				}
+			
+			
 			} senao se (energia_Julio < 0) {
 				energia_Julio = 0
 			} senao se (energia_Julio > energia_max) {
@@ -922,8 +954,8 @@ programa
 
 	funcao franco_dano () 
 	{
-		inteiro ataque
-		inteiro opcao
+		inteiro ataque = 0
+		inteiro opcao = 0
 		inteiro energia_max = 130
 
 		se (energia_Franco > 20) {
@@ -1006,7 +1038,7 @@ programa
 
   funcao teste_vazio ()
   {
-    inteiro opcao 
+    inteiro opcao = 0
     
     limpa()
     escreva("O inimigo Vazio possuí ", vida_Vazio, " de vida! \n")
@@ -1041,3 +1073,15 @@ programa
 	}
 
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 34885; 
+ * @DOBRAMENTO-CODIGO = [954, 1038, 1066];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
